@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 20:42:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/27 23:33:12 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/27 23:33:45 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	print_num_dict(char *buffer, int level, char *in_string)
 	int		size;
 
 	size = 0;
-	while (in_string[size] != '\0')	
+	while (in_string[size] != '\0')
 		size++;
 	num_holder[0] = in_string[level];
 	print_string(search_dict(num_holder, buffer));
