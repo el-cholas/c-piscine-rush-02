@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   dict_build.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yzaytoun <yzaytoun@student.42madrid>       +#+  +:+       +#+        */
+/*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 01:06:12 by yzaytoun          #+#    #+#             */
-/*   Updated: 2022/02/27 06:05:07 by yzaytoun         ###   ########.fr       */
+/*   Updated: 2022/02/27 18:37:58 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <header.h>
+
+#include "header.h"
 
 void	print(char c)
 {
 	write(1, &c, 1);
 }
 
-void	len(char *c)
+int	len(char *str)
 {
 	int	i;
 
@@ -26,9 +27,11 @@ void	len(char *c)
 	return (i);
 }
 
+/*Flag = 0, For dict parsing and unresolve values*/
+/*Flag = 1, If the argument is not a "unsigned int"*/
 void	check_error(int fun, int flag)
 {
-	if (flag == 0)             /*For dict parsing and unresolve values*/
+	if (flag == 0)
 	{
 		if (fun < 0)
 		{
@@ -38,7 +41,7 @@ void	check_error(int fun, int flag)
 	}
 	else
 	{
-		if (flag == 1)        /*If the argument is not a "unsigned int"*/
+		if (flag == 1)
 		{
 			write(1, "Error\n", 6);
 			exit (1);
@@ -46,24 +49,24 @@ void	check_error(int fun, int flag)
 	}
 }
 
-struct s_dict 	*dict_assign(struct s_dict *dest, char **dict_v)
+/* Where ':' is the delimiter*/
+struct s_dict	*dict_assign(struct s_dict *dest, char **dict_v)
 {
-	int 	count_col;
-	int		count_row;
+	int	count_col;
+	int	count_row;
 
 	count_col = 0;
 	count_row = 0;
-	
-	while (dict_v[count_row][count_col] != '\0') 
+	while (dict_v[count_row][count_col] != '\0')
 	{
 		count_col = 0;
-		while (dict_v[count_row][count_col] != 58)  /* 58 = ':' delimiter*/
+		while (dict_v[count_row][count_col] != ':')
 		{
 			dest.key[count_row][count_col] = dict_v[count_row][count_col];
 			count_col++;
 		}
 		while ((dict_v[count_row][count_col] != '\n')
-			  || (dict_v[count_row][count_col]) != '\0')
+		|| (dict_v[count_row][count_col]) != '\0')
 		{
 			dest.value[count_row][count_col] = dict_v[count_row][count_col];
 			count_col++;
@@ -95,11 +98,5 @@ char	*read_file(char *file)
 	dict[count] = '\0';
 	free(dict_memory);
 	close(dict_open);
-	return(dict);
-}
-
-void	free_all(char *file, char *dict)
-{
-	free(file);
-	free(dict);
+	return (dict);
 }
