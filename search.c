@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 19:05:43 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/27 20:34:59 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:59:32 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ char	*search_dict(char *search, char *file_buffer)
 	int		buf_size;
 
 	buf_size = get_string_size(ft_strstr(file_buffer, search));
-	buf_string = malloc(sizeof(char) * buf_size);
+	buf_string = (char *)malloc(sizeof(char) * buf_size);
 	buf_string = ft_strstr(file_buffer, search);
 	returned = clean(buf_string);
-	//free(buf_string);
+	//free_string(buf_string);
 	return (returned);
 }
 
@@ -56,16 +56,11 @@ char	*clean(char *input)
 	int		size_till_end;
 	char	*cleaned;
 	int		counter;
-	int		bool_not_found_space;
 
-	bool_not_found_space = 1;
 	size_till_space = 0;
-	while (bool_not_found_space)
-	{
-		if (input[size_till_space] == ' ')
-			bool_not_found_space = 0;
+	while (input[size_till_space] != ' ')
 		size_till_space++;
-	}
+	size_till_space++;
 	size_till_end = 0;
 	while (input[size_till_end] != '\0' && input[size_till_end] != '\n')
 		size_till_end++;
@@ -76,6 +71,5 @@ char	*clean(char *input)
 		cleaned[counter] = input[counter + size_till_space];
 		counter++;
 	}
-	cleaned[counter] = '\0';
 	return (cleaned);
 }
