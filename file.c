@@ -6,11 +6,21 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 01:06:12 by yzaytoun          #+#    #+#             */
-/*   Updated: 2022/02/27 19:35:45 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:19:29 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+int	get_string_size(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '0')
+		i++;
+	return (i);
+}
 
 /*Flag = 0, For dict parsing and unresolve values*/
 /*Flag = 1, If the argument is not a "unsigned int"*/

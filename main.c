@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 04:42:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/27 19:37:51 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:34:14 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		error = convert_value(argv[1]);
 	if (error)
 		print_string("Error\n");
-	print_string(search_dict("40", read_file("numbers.dict")));
+	print_string(search_dict("60", read_file("numbers.dict")));
 }
 
 /* Return int to see if there are errors */
