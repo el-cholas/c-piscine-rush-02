@@ -6,9 +6,11 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:59:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/27 19:00:12 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:30:45 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "header.h"
 
 /* Where ':' is the delimiter*/
 struct s_dict	*dict_assign(struct s_dict *dest, char **dict_v)
@@ -18,7 +20,8 @@ struct s_dict	*dict_assign(struct s_dict *dest, char **dict_v)
 
 	count_col = 0;
 	count_row = 0;
-	dict_v = NULL;
+	// Only to use dict_v so I can compile.
+	print_string(dict_v[0]);
 	/*
 	while (dict_v[count_row][count_col] != '\0')
 	{
@@ -39,4 +42,3 @@ struct s_dict	*dict_assign(struct s_dict *dest, char **dict_v)
 	*/
 	return (dest);
 }
-

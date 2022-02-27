@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversions.c                                      :+:      :+:    :+:   */
+/*   search.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 18:52:32 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/27 19:02:58 by xcarroll         ###   ########.fr       */
+/*   Created: 2022/02/27 19:05:43 by xcarroll          #+#    #+#             */
+/*   Updated: 2022/02/27 19:36:50 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
-	int	sign;
-	int	result;
+	int	j;
 
 	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] == ' ')
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	j = 0;
+	if (to_find[j] == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		while (str[i + j] == to_find[j] && str[i + j] != '\0')
+			j++;
+		if (to_find[j] == '\0')
+			return (str + i);
 		i++;
+		j = 0;
 	}
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
-	}
-	return (result * sign);
+	return (0);
+}
+
+char	*search_dict(char *search, char *file_buffer)
+{
+	return (ft_strstr(file_buffer, search));
 }
