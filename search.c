@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 19:05:43 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/27 20:59:32 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/27 22:20:18 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	*ft_strstr(char *str, char *to_find)
 }
 
 /* This doesn't use the struct, since idk how to use it.. */
+/* Won't work if search value doesn't exist, need to handle that */
 char	*search_dict(char *search, char *file_buffer)
 {
 	char	*buf_string;

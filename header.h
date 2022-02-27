@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 01:12:28 by yzaytoun          #+#    #+#             */
-/*   Updated: 2022/02/27 20:47:53 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/27 22:36:04 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ int				new_dict(char *new_key, char *to_convert);
 char			*ft_strstr(char *str, char *to_find);
 char			*search_dict(char *search, char *file_buffer);
 char			*clean(char *input);
+void			print_num_dict(char *buffer, int level, char *full_num);
 /* string.c */
 void			free_string(char *str);
 int				get_string_size(char *str);
+int				print_divided_string(char *str);
 #endif
