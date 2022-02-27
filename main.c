@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 04:42:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/27 18:38:13 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/27 18:51:42 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,20 @@ int	main(int argc, char **argv)
 		printf("Arg 2: %s\n", argv[2]);
 		printf("Arg 1: %s\n", argv[1]);
 	}
-	else if (argc == 1)
-		printf("Arg: %s\n", argv[1]);
-	printf("%s", read_file("numbers.dict"));
+	else if (argc == 2)
+		convert_value(argv[1]);
+	print_string(read_file("numbers.dict"));
 }
 
+void	convert_value(char *str)
+{
+	print_string("Arg 0: %s\n", str);
+}
+
+void	new_dict(char *str)
+{
+	print_string("Arg 0: %s\n", str);
+}
 /*
 	int filedesc = open("numbers.dict", O_RDONLY);
 	char c = 1;
